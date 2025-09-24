@@ -14,7 +14,7 @@ This is a Next.js 15 App Router project integrated with Storyblok CMS for headle
 The project uses a sophisticated dual-mode routing to handle both published and draft content:
 
 - **Production Route**: `app/[[...slug]]/page.tsx` - Fetches `published` content for live site
-- **Preview Route**: `app/live-preview/[[...slug]]/page.tsx` - Fetches `draft` content for Storyblok live preview
+- **Preview Route**: `app/preview/[[...slug]]/page.tsx` - Fetches `draft` content for Storyblok live preview
 - **Slug Handling**: Both routes use catch-all segments `[[...slug]]` to handle dynamic paths; empty slug defaults to "home"
 
 ### Content Fetching Strategy
