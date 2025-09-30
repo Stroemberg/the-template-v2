@@ -1,0 +1,118 @@
+[
+  {
+    "name": "feature",
+    "display_name": null,
+    "description": null,
+    "created_at": "2025-09-23T08:18:16.689Z",
+    "updated_at": "2025-09-23T08:18:16.689Z",
+    "id": 93904472843314,
+    "schema": {
+      "name": {
+        "type": "text",
+        "id": "PsQUNJrvRVq2Ez1r9cQ3jA"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "feature",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "grid",
+    "display_name": null,
+    "description": null,
+    "created_at": "2025-09-23T08:18:16.677Z",
+    "updated_at": "2025-09-23T08:18:16.677Z",
+    "id": 93904472794161,
+    "schema": {
+      "columns": {
+        "type": "bloks",
+        "id": "mf8EoIHqTYSUNZrD9DTiPQ"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "grid",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "page",
+    "display_name": null,
+    "description": null,
+    "created_at": "2025-09-23T08:18:16.651Z",
+    "updated_at": "2025-09-23T08:18:16.651Z",
+    "id": 93904472691759,
+    "schema": {
+      "body": {
+        "type": "bloks",
+        "id": "_qQavAtMRP-rdhBI_8zW3g"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": true,
+    "preview_tmpl": null,
+    "is_nestable": false,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "page",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "teaser",
+    "display_name": null,
+    "description": null,
+    "created_at": "2025-09-23T08:18:16.665Z",
+    "updated_at": "2025-09-23T08:18:16.665Z",
+    "id": 93904472745008,
+    "schema": {
+      "headline": {
+        "type": "text",
+        "id": "1E0JNz4yTT22Yf16m_6k0w"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "teaser",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  }
+]

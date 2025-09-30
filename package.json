@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack --experimental-https",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "storyblok:generate-types": "storyblok components pull --space 287344006250365 && storyblok types generate --space 287344006250365 --type-prefix Storyblok"
   },
   "dependencies": {
     "@storyblok/react": "^5.4.12",

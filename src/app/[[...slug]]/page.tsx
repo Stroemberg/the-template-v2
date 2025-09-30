@@ -9,9 +9,8 @@ type Params = Promise<{ slug?: string[] }>;
 
 export default async function Home({ params }: { params: Params }) {
   const slug = (await params).slug;
-  const pageData = await fetchStory('published', slug);
+  console.log("Home page", slug);
+  const pageData = await fetchStory("published", slug);
 
-  return (
-    <StoryblokStory story={pageData.story} />
-  );
+  return <StoryblokStory story={pageData.story} />;
 }
