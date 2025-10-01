@@ -114,5 +114,29 @@
     "internal_tag_ids": [],
     "content_type_asset_preview": null,
     "metadata": {}
+  },
+  {
+    "name": "test",
+    "display_name": null,
+    "description": "Test",
+    "created_at": "2025-09-29T09:36:40.960Z",
+    "updated_at": "2025-09-29T09:36:40.960Z",
+    "id": 96047107940181,
+    "schema": {},
+    "image": null,
+    "preview_field": null,
+    "is_root": true,
+    "preview_tmpl": null,
+    "is_nestable": false,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "test",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
   }
 ]

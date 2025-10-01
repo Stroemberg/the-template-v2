@@ -8,6 +8,7 @@
     "start": "bun --bun next start",
     "lint": "bun --bun next lint",
     "type-check": "bun --bun tsc --noEmit",
+    "storyblok": "storyblok",
     "storyblok:generate-types": "storyblok components pull --space 287344006250365 && storyblok types generate --space 287344006250365 --type-prefix Storyblok"
   },
   "dependencies": {
@@ -15,7 +16,8 @@
     "@tailwindcss/postcss": "^4.1.13",
     "next": "15.5.3",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "storyblok": "^4.6.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
