@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack --experimental-https",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "dev": "bun --bun next dev --turbopack --experimental-https",
+    "build": "bun --bun next build",
+    "start": "bun --bun next start",
+    "lint": "bun --bun next lint",
+    "type-check": "bun --bun tsc --noEmit",
     "storyblok:generate-types": "storyblok components pull --space 287344006250365 && storyblok types generate --space 287344006250365 --type-prefix Storyblok"
   },
   "dependencies": {
@@ -26,5 +27,9 @@
     "postcss": "^8",
     "tailwindcss": "^4.1.13",
     "typescript": "^5"
-  }
+  },
+  "engines": {
+    "bun": ">=1.2.23"
+  },
+  "packageManager": "bun@1.2.23"
 }
