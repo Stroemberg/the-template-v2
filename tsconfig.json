@@ -1,11 +1,8 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "ES2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -23,9 +20,11 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"],
+      "@/storyblok-component-types": [
+        "./.storyblok/types/287344006250365/storyblok-components.d.ts"
+      ],
+      "@/storyblok-types": ["./.storyblok/types/storyblok.d.ts"]
     }
   },
   "include": [
@@ -35,7 +34,5 @@
     ".next/types/**/*.ts",
     "environment.d.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

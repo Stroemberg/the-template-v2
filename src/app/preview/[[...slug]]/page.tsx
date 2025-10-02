@@ -1,5 +1,6 @@
 import { StoryblokStory } from "@storyblok/react/rsc";
 import { fetchStory } from "@/utils/fetchStory";
+import { extractLocaleFromPath, removeLocaleFromPath } from "@/utils/locale";
 import { notFound } from "next/navigation";
 
 type SearchParams = Promise<{ [key: string]: string | undefined }>;
@@ -19,9 +20,17 @@ export default async function PreviewPage({
 
   if (!hasAccess) notFound();
 
-  const pageData = await fetchStory(
-    "draft",
-    [slug].filter(Boolean) as string[]
-  );
+  // Extract locale from the slug
+  const fullPath = slug ? `/${slug}` : "/";
+  const locale = extractLocaleFromPath(fullPath);
+  const cleanSlug = removeLocaleFromPath(fullPath);
+
+  const slugArray =
+    cleanSlug === "/" ? undefined : cleanSlug.slice(1).split("/");
+
+  const pageData = await fetchStory("draft", slugArray, locale);
+
+  if (!pageData.story) notFound();
+
   return <StoryblokStory story={pageData.story} />;
 }
