@@ -10,11 +10,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  i18n: {
-    locales: ["en", "sv"],
-    defaultLocale: "en",
-    localeDetection: false,
-  },
 };
 
 export default nextConfig;

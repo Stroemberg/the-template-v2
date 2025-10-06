@@ -12,6 +12,8 @@ export default async function PreviewPage({
 }) {
   const sp = await searchParams;
 
+  console.log("PreviewPage searchParams:", sp);
+
   const { slug, secret } = sp;
 
   const requiredSecret = process.env.STORYBLOK_PREVIEW_SECRET;
@@ -20,17 +22,20 @@ export default async function PreviewPage({
 
   if (!hasAccess) notFound();
 
-  // Extract locale from the slug
+  // Extract locale from the slug query parameter
   const fullPath = slug ? `/${slug}` : "/";
   const locale = extractLocaleFromPath(fullPath);
   const cleanSlug = removeLocaleFromPath(fullPath);
 
+  // Convert to array format for fetchStory (it will handle the prefix removal)
   const slugArray =
     cleanSlug === "/" ? undefined : cleanSlug.slice(1).split("/");
 
-  const pageData = await fetchStory("draft", slugArray, locale);
-
-  if (!pageData.story) notFound();
-
-  return <StoryblokStory story={pageData.story} />;
+  try {
+    const pageData = await fetchStory("draft", slugArray, locale);
+    return <StoryblokStory story={pageData.story} />;
+  } catch (error) {
+    console.error("Error fetching story:", error);
+    notFound();
+  }
 }

@@ -21,9 +21,11 @@ export default async function Home({ params }: { params: Params }) {
   const slugArray =
     cleanSlug === "/" ? undefined : cleanSlug.slice(1).split("/");
 
-  const pageData = await fetchStory("published", slugArray, locale);
+  try {
+    const pageData = await fetchStory("published", slugArray, locale);
+    return <StoryblokStory story={pageData.story} />;
+  } catch {
+    notFound();
+  }
 
-  if (!pageData.story) notFound();
-
-  return <StoryblokStory story={pageData.story} />;
 }
