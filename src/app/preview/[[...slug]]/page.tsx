@@ -12,8 +12,6 @@ export default async function PreviewPage({
 }) {
   const sp = await searchParams;
 
-  console.log("PreviewPage searchParams:", sp);
-
   const { slug, secret } = sp;
 
   const requiredSecret = process.env.STORYBLOK_PREVIEW_SECRET;
