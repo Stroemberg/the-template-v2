@@ -1,10 +1,11 @@
 import { getStoryblokApi } from "@/lib/storyblok";
+import { ISbStoryData } from "@storyblok/react";
 
 export const fetchStory = async (
   version: "draft" | "published",
   slug?: string[],
   locale?: string
-) => {
+): Promise<{ story: ISbStoryData }> => {
   let correctSlug = `/${slug ? slug.join("/") : "home"}`;
 
   // Remove locale prefix from slug for all API calls
@@ -25,6 +26,6 @@ export const fetchStory = async (
     version,
     language: locale,
   });
-  
+
   return data;
 };
