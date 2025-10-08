@@ -10,6 +10,7 @@
         "react": "^19.1.1",
         "react-dom": "^19.1.1",
         "storyblok": "^4.6.6",
+        "storyblok-rich-text-react-renderer": "^3.0.1",
       },
       "devDependencies": {
         "@eslint/eslintrc": "^3",
@@ -970,6 +971,8 @@
     "storyblok": ["storyblok@4.6.6", "", { "dependencies": { "@inquirer/prompts": "^7.5.1", "@storyblok/js": "4.3.1", "@storyblok/management-api-client": "0.1.4", "@storyblok/region-helper": "1.3.1", "@topcli/spinner": "^2.1.2", "async-sema": "^3.1.1", "chalk": "^5.4.1", "cli-progress": "^3.12.0", "commander": "^13.1.0", "dotenv": "^16.5.0", "filenamify": "^6.0.0", "json-schema-to-typescript": "^15.0.4", "minimatch": "^10.0.3", "octokit": "^5.0.3", "ohash": "^2.0.11", "open": "^10.1.2", "pathe": "^2.0.3", "read-package-up": "^11.0.0", "storyblok-js-client": "7.1.5" }, "bin": { "storyblok": "dist/index.mjs" } }, "sha512-GG+XosO/kePjTCwLx2IYzYyvvZl0TzvOWfJ/uKyDa3ebqZfWCVK2Kue3V9dRjejVYl3tACB2de6/AjtZwcTEFg=="],
 
     "storyblok-js-client": ["storyblok-js-client@7.1.5", "", {}, "sha512-N+DWilPdbXfnb54O3jbJ7IfPyQMs+Jn7KrTCO3lpS8JAEfb+BXQH3sLPri3qzy+tyk0IhXj+8ao4wOX1z89FNg=="],
+
+    "storyblok-rich-text-react-renderer": ["storyblok-rich-text-react-renderer@3.0.1", "", { "peerDependencies": { "react": ">=16.0.0" } }, "sha512-gd1nvjc95LEMLT4kVVXlN3p1qQUcIb/K4+LYnyAypX3MDP3dr2+DAX64nZb4CNbd8qHd+lM6SLxIxO53hgmK2Q=="],
 
     "string-width": ["string-width@4.2.3", "", { "dependencies": { "emoji-regex": "^8.0.0", "is-fullwidth-code-point": "^3.0.0", "strip-ansi": "^6.0.1" } }, "sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g=="],
 
