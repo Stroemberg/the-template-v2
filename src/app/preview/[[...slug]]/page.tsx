@@ -2,8 +2,31 @@ import { StoryblokStory } from "@storyblok/react/rsc";
 import { fetchStory } from "@/utils/fetchStory";
 import { extractLocaleFromPath, removeLocaleFromPath } from "@/utils/locale";
 import { notFound } from "next/navigation";
+import { generateMetadataFromSeo } from "@/utils/generateMetadataFromSeo";
+import { processSlugForStoryblok } from "@/utils/processPaths";
 
 type SearchParams = Promise<{ [key: string]: string | undefined }>;
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
+  const sp = await searchParams;
+
+  const { slug } = sp;
+
+  const { slugArray, locale } = processSlugForStoryblok(slug);
+
+  try {
+    const pageData = await fetchStory("draft", slugArray, locale);
+    const pageContent = pageData.story.content;
+
+    return generateMetadataFromSeo(pageContent.seo_fields[0], "draft");
+  } catch {
+    return {};
+  }
+}
 
 export default async function PreviewPage({
   searchParams,
@@ -14,20 +37,11 @@ export default async function PreviewPage({
 
   const { slug, secret } = sp;
 
-  const requiredSecret = process.env.STORYBLOK_PREVIEW_SECRET;
-
-  const hasAccess = secret === requiredSecret;
+  const hasAccess = secret === process.env.STORYBLOK_PREVIEW_SECRET;
 
   if (!hasAccess) notFound();
 
-  // Extract locale from the slug query parameter
-  const fullPath = slug ? `/${slug}` : "/";
-  const locale = extractLocaleFromPath(fullPath);
-  const cleanSlug = removeLocaleFromPath(fullPath);
-
-  // Convert to array format for fetchStory (it will handle the prefix removal)
-  const slugArray =
-    cleanSlug === "/" ? undefined : cleanSlug.slice(1).split("/");
+  const { slugArray, locale } = processSlugForStoryblok(slug);
 
   try {
     const pageData = await fetchStory("draft", slugArray, locale);

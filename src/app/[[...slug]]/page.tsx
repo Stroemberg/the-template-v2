@@ -1,7 +1,8 @@
 import { StoryblokStory } from "@storyblok/react/rsc";
 import { fetchStory } from "@/utils/fetchStory";
-import { extractLocaleFromPath, removeLocaleFromPath } from "@/utils/locale";
 import { notFound } from "next/navigation";
+import { generateMetadataFromSeo } from "@/utils/generateMetadataFromSeo";
+import { processSlugForStoryblok } from "@/utils/processPaths";
 
 export async function generateStaticParams() {
   return [];
@@ -9,17 +10,25 @@ export async function generateStaticParams() {
 
 type Params = Promise<{ slug?: string[] }>;
 
+export async function generateMetadata({ params }: { params: Params }) {
+  const slug = (await params).slug;
+
+  const { slugArray, locale } = processSlugForStoryblok(slug);
+
+  try {
+    const pageData = await fetchStory("published", slugArray, locale);
+    const pageContent = pageData.story.content;
+
+    return generateMetadataFromSeo(pageContent.seo_fields[0], "published");
+  } catch {
+    return {};
+  }
+}
+
 export default async function Home({ params }: { params: Params }) {
   const slug = (await params).slug;
 
-  // Extract locale from the slug
-  const fullPath = slug ? `/${slug.join("/")}` : "/";
-  const locale = extractLocaleFromPath(fullPath);
-  const cleanSlug = removeLocaleFromPath(fullPath);
-
-  // Remove leading slash and split into array for the fetch function
-  const slugArray =
-    cleanSlug === "/" ? undefined : cleanSlug.slice(1).split("/");
+  const { slugArray, locale } = processSlugForStoryblok(slug);
 
   try {
     const pageData = await fetchStory("published", slugArray, locale);
@@ -27,5 +36,4 @@ export default async function Home({ params }: { params: Params }) {
   } catch {
     notFound();
   }
-
 }
